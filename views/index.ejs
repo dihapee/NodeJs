@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+</head>
+<body>
+  <style>
+    body {
+      background-color: #181818;
+    }
+    table {
+      background-color: #fff;
+      margin-top: 300px;
+      margin-left: 400px;
+      width: 50%;
+      border: 4px solid rgb(8, 82, 151);
+      border-radius: 13px;
+      padding: 10px;
+    }
+
+    button {
+      width: 100px;
+      border: 4px solid rgb(8, 82, 151);
+      border-radius: 13px;
+      padding: 5px;
+      margin-top: 50px;
+      margin-left: 730px;
+      
+    }
+  </style>
+    <table>
+        <% for(var i=0; i < result.length; i++) { %>
+          <tr>
+            <td>
+              <%= result[i].ID %>
+            </td>
+            <td>
+              <%= result[i].fname %>
+            </td>
+            <td>
+              <%= result[i].lname %>
+            </td>
+            <td>
+              <%= result[i].age %>
+            </td>
+            <td>
+            
+            </td>
+          </tr>
+          <% } %>
+      </table>
+      <form class="signup" action="http://localhost:80/newuser">
+        <button type="submit">sign up</button>
+        </form>
+</body>
+</html>
