@@ -36,7 +36,7 @@ app.get('/newuser', (req, res) => {
 app.post('/createuser', function (request, response, next) {
   console.log(request.body)
     // SQL dotaz pro vložení dat do databáze
-    var sql = `INSERT INTO new_table (fname, lname, age) VALUES (null, '${request.body.fname}', '${request.body.lname}', '${request.body.age}')`;
+    var sql = `INSERT INTO new_table (fname, lname, age) VALUES ('${request.body.fname}', '${request.body.lname}', '${request.body.age}')`;
    
     con.query(sql, (error, results, fields) => {
       if (error) {

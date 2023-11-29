@@ -3,63 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+    <title>Sign Up</title>
     <style>
         body {
-            background-color: #181818;
-        }
-
-        h1 {
-            margin-left: 730px;
+            background-color: #222;
             color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
         }
-        
-        .data {
-            background-color: #fff;
-            margin-top: 300px;
-            margin-left: 400px;
-            padding-left: 10px;
-            position: relative;
-            padding-top: 20px;
-            width: 250px;
-            height: 150px;
-            border: 3px solid rgb(8, 82, 151);
-            border-radius: 13px;
 
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+            transform: translateY(50px);
         }
-        #lname, #fname, #age {
-            margin-top: 10px;
-            padding-left: 5px;
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        button {
-            margin-top: 5px;
-            margin-left: 90px;
-            border: 3px solid rgb(8, 82, 151); 
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: #fff;
+            font-weight: bold;
+            text-align: left;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeInLabels 1s forwards;
+        }
+
+        @keyframes fadeInLabels {
+            to {
+                opacity: 1;
+            }
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 12px);
+            padding: 10px;
+            margin-bottom: 15px;
             border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #333;
+            opacity: 0;
+            animation: fadeInInputs 1s forwards;
+        }
+
+        @keyframes fadeInInputs {
+            to {
+                opacity: 1;
+            }
+        }
+
+        button[type="submit"],
+        .back-button input[type="submit"] {
+            width: calc(100% - 40px); /* Updatovaná šířka tlačítka */
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #fff;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+            animation: fadeInButton 1s forwards;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover,
+        .back-button input[type="submit"]:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes fadeInButton {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .back-button {
+            margin-top: 20px;
+            opacity: 0;
+            animation: fadeInBackButton 1s forwards;
+        }
+
+        @keyframes fadeInBackButton {
+            to {
+                opacity: 1;
+            }
         }
     </style>
+</head>
+<body>
 
-    <h1>sign up</h1>
+    <div class="container">
+        <H1>Sign Up</H1>
+        <form class="data" method="POST" action="/createuser">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" required>
 
-    <form class="data" method="POST" action="/createuser">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" required>
 
-        <label for="fname">jmeno</label>
-        <input type="text" id="fname" name="fname" required>
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" required>
 
-        <label for="lname">prijmeni</label>
-        <input type="text" id="lname" name="lname" required>
-
-        <label for="age">age</label>
-        <input type="number" id="age" name="age" required>
-
-        <button type="submit">sign up</button>
-
-        
-    </form>
-    <form action="http://localhost">
-        <input type="submit" value="zpatky" />
+            <button type="submit">Sign Up</button>
         </form>
+
+        <div class="back-button">
+            <form action="http://localhost">
+                <input type="submit" value="Back" />
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>
