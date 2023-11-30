@@ -49,6 +49,27 @@ app.post('/createuser', function (request, response, next) {
    
   })
 
+  app.post('/deleteuser', function (request, response, next) { 
+    console.log("log"+request.body.userID); 
+    const userId = request.body.userID; 
+    const sql = `DELETE FROM new_table WHERE ID='${userId}'`; 
+  
+    con.query(sql, (error, results, fields) => { 
+       if (error) { 
+          console.error(error); 
+          return; 
+       } 
+  
+       if (results.affectedRows > 0) { 
+          console.log(`User with ID ${userId} deleted`); 
+          response.redirect('http://localhost/?'); 
+       } else { 
+          console.error(`User with ID ${userId} not found`); 
+          response.status(404).send(`Uživatel nenalezen`); 
+       } 
+    }); 
+ });
+
 
 
 

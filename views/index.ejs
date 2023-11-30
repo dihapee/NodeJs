@@ -114,6 +114,12 @@
         <form class="signup" action="http://localhost:80/newuser">
             <button type="submit">Sign Up</button>
         </form>
+
+
     </div>
+    <form action="/deleteuser" method="POST" style="display:inline;"> 
+        <input type="hidden" name="userID" value="<%= result[item].ID %>"> 
+        <button type="submit" class="delete-button">Delete User</button> 
+    </form>
 </body>
 </html>
